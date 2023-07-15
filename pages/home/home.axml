@@ -1,0 +1,78 @@
+<view class="header c-fColumn-e">
+  <view class="c-f-cb">
+    <view>
+      <view class="header_city-box c-f-c">
+        <view class="header_city c-f-c">
+          成都<image mode="scaleToFill" src="/static/imgs/arrow_bottom.png" class="header_city-arrow" />
+        </view>
+      </view>
+      <view class="header-other-info c-f-c" a:if="{{weatherinfo}}">
+        <image mode="scaleToFill" src="/static/imgs/37_29.png" class="header-other-icon" />{{weatherinfo}}
+      </view>
+    </view>
+    <view onTap="onUserInfo" a:if="{{userInfo.sessionKey}}">
+      <image mode="scaleToFill" src="{{userInfo.avatar || userDefaultAvatar}}" class="header_user-pic" />
+      <!-- <text class="header_user-name">{{userInfo.nickName}}</text> -->
+    </view>
+  </view>
+  <view class="header_serach c-f-c" onTap="onSearch">
+    <image mode="scaleToFill" src="/static/imgs/search.png" class="header_search-icon" />
+    <text>社保查询</text>
+  </view>
+</view>
+
+<!-- 推荐服务 -->
+<view class="recommend" a:if="{{serviceList.topserviceinfo.length}}">
+  <view class="recommend-service c-f-c">
+    <view class="recommend-service-item" a:for="{{serviceList.topserviceinfo}}" data-item="{{item}}" data-path="{{item.serviceurl}}" onTap="onNavigateToPage">
+      <image mode="scaleToFill" src="{{item.picurl}}" class="recommend-service-itemImg" />
+      <view class="recommend-service-itemTitle c-text-over_clamp">{{item.service_name}}</view>
+      <view class="recommend-service-itemTag" a:if="{{item.corner}}">{{item.corner}}</view>
+    </view>
+  </view>
+  <button size="default" hover-class="login-btn_hover" class="login-btn" onTap="onLogin" a:if="{{!userInfo.sessionKey}}">登录</button>
+</view>
+
+<swiper indicator-dots="{{true}}" indicator-color="#D0F0FB" indicator-active-color="rgba(166,211,252,1)" class="recommend-banner">
+  <block a:for="{{serviceList.bannerinfo}}">
+    <swiper-item>
+      <image src="{{item.picurl}}" mode="aspectFill" lazy-load class="recommend-banner-itemImg"
+        data-item="{{item}}" data-path="{{item.bannerurl}}" onTap="onNavigateToPage"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 生活资讯 -->
+<view class="module" a:if="{{serviceList.info.length}}">
+  <image mode="scaleToFill" src="/static/imgs/info_title.png" class="module-title" />
+  <view class="info">
+    <view class="info-item c-f-cb" a:for="{{serviceList.info}}" data-item="{{item}}" data-path="{{item.url}}" onTap="onNavigateToPage">
+      <view class="info-item-left">
+        <view class="info-item-title">{{item.name}}
+          <text class="info-item-cornerMark" a:if="{{item.is_new_service}}"></text>
+        </view>
+        <view class="info-item-text c-text-over_clamp">{{item.subName}}</view>
+      </view>
+      <view class="info-item-right">
+        <view class="info-item-type">{{item.infoType}}</view>
+        <view class="info-item-date">{{item.create_time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 常用服务 -->
+<view class="module" a:if="{{serviceList.newServiceInfo.length}}">
+  <image mode="scaleToFill" src="/static/imgs/service_title.png" class="module-title" />
+  <scroll-view scroll-x="{{true}}" class="service-nav">
+    <view class="service-nav-item {{activeServiceNavIndex === index && 'service-nav-item_active'}}" 
+     a:for="{{serviceList.newServiceInfo}}" data-index="{{index}}" onTap="onServiceNav">{{item.type}}</view>
+  </scroll-view>
+  <view class="service-list">
+    <view class="service-list-item" a:for="{{serviceList.newServiceInfo[activeServiceNavIndex].data}}" data-item="{{item}}" data-path="{{item.serviceurl}}" onTap="onNavigateToPage">
+      <image mode="aspectFit" src="{{item.picurl}}" class="service-list-itemIcon" />
+      <view class="service-list-itemTitle c-text-over_clamp">{{item.service}}</view>
+      <view class="service-list-itemTag" a:if="{{item.corner}}">{{item.corner}}</view>
+    </view>
+  </view>
+</view>

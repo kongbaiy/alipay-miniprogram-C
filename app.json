@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/search/search",
+    "pages/personal-center/personal-center",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "titleBarColor": "#2D54CC"
+  }
+}

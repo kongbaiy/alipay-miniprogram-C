@@ -1,0 +1,79 @@
+.search {
+  margin: 61rpx 24rpx 0;
+  padding: 0 26rpx;
+  height: 62rpx;
+  border: 1px solid #B5B5B5;
+  border-radius: 31rpx;
+}
+
+.search-icon {
+  width: 33rpx;
+  height: 33rpx;
+}
+
+.search-input {
+  flex: 1;
+  margin-left: 23rpx;
+  padding: 0;
+  font-size: 23rpx;
+  font-family: PingFang;
+  font-weight: 700;
+}
+
+.search-input::placeholder {
+  color: rgba(30,38,47,0.6);
+}
+
+.search-history,
+.list {
+  margin: 32rpx 24rpx;
+}
+
+.search-history-title {
+  font-size: 32rpx;
+  font-family: PingFang;
+  font-weight: 800;
+  color: #1E262F;
+}
+
+.search-history-list {
+  overflow: hidden;
+  margin-top: 2rpx;
+}
+
+.search-history-listItem {
+  float: left;
+  margin-top: 24rpx;
+  margin-right: 25rpx;
+  padding: 10rpx 25rpx;
+  background-color: rgba(30,38,47, 0.06);
+  font-size: 24rpx;
+  font-family: PingFang;
+  font-weight: 700;
+  color: #1E262F;
+}
+
+.list-item {
+  margin-top: 0.3rem;
+  padding: 0 0.2rem;
+  height: 92rpx;
+  box-shadow: 0 0.02rem 0.2rem 0rem rgb(0 0 0 / 10%);  
+}
+
+.list-item-title {
+  font-size: 30rpx;
+  font-family: PingFang;
+  font-weight: 700;
+  color: #1E262F;
+}
+
+.list-item-icon {
+  margin-right: 20rpx;
+  width: 62rpx;
+  height: 62rpx;
+}
+
+.left-arrow {
+  width: 15rpx;
+  height: 25rpx;
+}

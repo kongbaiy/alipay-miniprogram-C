@@ -1,0 +1,21 @@
+<view class="search c-f-c">
+  <image mode="scaleToFill" src="/static/imgs/search2.png" class="search-icon" />
+  <input type="text" confirm-type="search" value="{{searchInputVal}}" placeholder="社保查询"
+   class="search-input" onInput="onSearchInput" onConfirm="onSearchInputConfirm" />
+</view>
+
+<view class="search-history" a:if="{{searchHistory.length && !list.length}}">
+  <view class="search-history-title">历史搜索</view>
+  <view class="search-history-list">
+    <view class="search-history-listItem" a:for="{{searchHistory}}" data-item="{{item}}" onTap="onSearchHistory">{{item}}</view>
+  </view>
+</view>
+
+<view class="list">
+  <view class="list-item c-f-cb" a:for="{{list}}" data-item="{{item}}" data-path="{{item.serviceurl}}" onTap="onNavigateToPage">
+    <view class="list-item-title c-f-c">
+      <image mode="aspectFit" src="{{item.picurl}}" class="list-item-icon" />{{item.service || item.service_name}}
+    </view>
+    <image mode="scaleToFill" src="/static/imgs/arrow_left.png" class="left-arrow" />
+  </view>
+</view>

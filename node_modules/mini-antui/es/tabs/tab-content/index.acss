@@ -1,0 +1,1 @@
+.am-tabs-pane-wrap{width:100vw;height:auto;flex-shrink:0}.fix .am-tabs-pane-wrap{position:static}.am-tabs-pane-wrap-swiper-item{position:absolute;top:0;left:0}

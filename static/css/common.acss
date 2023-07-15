@@ -1,0 +1,28 @@
+/* flex */
+.c-f-d {
+  display: flex;
+}
+
+.c-f-c {
+  display: flex;
+  align-items: center;
+}
+
+.c-f-cb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-fColumn-e {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* text */
+.c-text-over_clamp {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,0 +1,33 @@
+<view class="content">
+  <view class="header c-fColumn-e">
+    <view class="user-info c-f-c" a:if="{{userInfo.sessionKey}}">
+      <image mode="scaleToFill" src="{{userInfo.avatar || userDefaultAvatar}}" class="user-pic" />
+      <text class="username">{{userInfo.nickName}}</text>
+      <image mode="heightFix" src="/static/imgs/have_real_name.png" class="user_status-icon" a:if="{{(userInfo.accountInfo || {}).idcardNo}}" />
+      <image mode="heightFix" src="/static/imgs/no_real_name.png" class="user_status-icon" a:else />
+    </view>
+  </view>
+  
+  <view class="service-list">
+    <view style="background-image:url({{item.picurl}});" class="service-list-item c-f-c"
+     a:for="{{serviceList.cardlist}}" data-item="{{item}}" data-path="{{item.bannerurl}}" onTap="onNavigateToPage">
+      <!-- <image mode="scaleToFill" src="{{item.avatorUrl}}" class="service-list-itemIcon" />
+      <view class="service-list-itemInfo">
+        <view class="service-list-itemTitle">{{item.content}}</view>
+        <view class="service-list-itemText">书籍检索 轻松借阅</view>
+        <view class="service-list-itemOrigin">{{item.department}}</view>
+      </view> -->
+    </view>
+  </view>
+  
+  <view class="privacy-policy">
+    <view class="privacy-policy-item c-f-cb" a:for="{{privacyPolicyUrl}}" data-item="{{item}}" data-path="{{item.url}}" onTap="onNavigateToPage">
+      <text class="privacy-policy-itemTitle">《隐私政策》</text>
+      <image mode="scaleToFill" src="/static/imgs/arrow_left.png" class="left-arrow" />
+    </view>
+  </view>
+</view>
+
+<view class="footer" a:if="{{!userInfo.sessionKey}}">
+  <button size="default" hover-class="login-btn_hover" class="login-btn" onTap="onLogin">登录</button>
+</view>
